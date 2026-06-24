@@ -827,7 +827,7 @@ Provider는 Terraform Core와 실제 클라우드 플랫폼(SCP, AWS, Azure 등)
 
 ##### 2. Provider 버전 관리: 일관성과 안정성의 확보
 Provider는 지속적으로 업데이트되며, 새로운 기능이 추가되거나 기존 버그가 수정되지만, 때로는 **하위 호환성을 깨는 변경(Breaking Change)**이 발생하기도 합니다.
-- **버전 고정 (Version Constraints)**: 코드의 일관성과 안정성을 유지하기 위해 `required_providers` 블록에서 Provider의 버전을 명시적으로 지정(`version = "4.0.1"` 등)해야 합니다.
+- **버전 고정 (Version Constraints)**: 코드의 일관성과 안정성을 유지하기 위해 `required_providers` 블록에서 Provider의 버전을 명시적으로 지정(`version = "4.1.1"` 등)해야 합니다.
 - **안정적인 배포**: 버전을 고정하지 않으면, `terraform init` 시 최신 버전이 설치되어 예기치 않은 동작이나 오류를 유발할 수 있습니다.
 
 #### 3.3.2 provider.tf 파일 구성
@@ -845,7 +845,7 @@ code-server provider.tf
 terraform {
   required_providers {
     samsungcloudplatformv2 = {
-      version = "4.0.1"
+      version = "4.1.1"
       source = "samsungsdscloud/samsungcloudplatformv2"
     }
     time = {
@@ -881,7 +881,7 @@ provider "local" {
 
 1.  **`terraform` 블록**:
     -   **`required_providers`**: 이 프로젝트에서 사용할 Terraform Provider들의 목록과 버전을 정의합니다.
-        -   **`samsungcloudplatformv2`**: SCP 리소스를 관리하기 위한 핵심 Provider입니다. `samsungsdscloud/samsungcloudplatformv2`에서 다운로드하며, 버전 `4.0.1`을 사용합니다.
+        -   **`samsungcloudplatformv2`**: SCP 리소스를 관리하기 위한 핵심 Provider입니다. `samsungsdscloud/samsungcloudplatformv2`에서 다운로드하며, 버전 `4.1.1`을 사용합니다.
         -   **`time`**: 시간 지연(`time_sleep`) 등의 시간 관련 리소스를 관리하는 Provider입니다. 리소스 생성 간의 대기 시간이 필요할 때 유용합니다.
         -   **`http`**: 외부 HTTP 요청을 보내거나 데이터를 가져올 때 사용하는 Provider입니다. 예를 들어, 현재 실행 환경의 Public IP를 확인하는 데 사용할 수 있습니다.
         -   **`local`**: 로컬 파일 시스템에 파일을 생성하거나 관리할 때 사용하는 Provider입니다. `kubeconfig` 파일, `keypair` 파일 등을 로컬에 저장할 때 사용됩니다.
@@ -968,15 +968,15 @@ Initializing provider plugins...
 - Finding hashicorp/time versions matching "~> 0.13.0"...
 - Finding hashicorp/http versions matching "~> 3.4.5"...
 - Finding hashicorp/local versions matching "~> 2.5.2"...
-- Finding samsungsdscloud/samsungcloudplatformv2 versions matching "4.0.1"...
+- Finding samsungsdscloud/samsungcloudplatformv2 versions matching "4.1.1"...
 - Installing hashicorp/time v0.13.1...
 - Installed hashicorp/time v0.13.1 (signed by HashiCorp)
 - Installing hashicorp/http v3.4.5...
 - Installed hashicorp/http v3.4.5 (signed by HashiCorp)
 - Installing hashicorp/local v2.5.3...
 - Installed hashicorp/local v2.5.3 (signed by HashiCorp)
-- Installing samsungsdscloud/samsungcloudplatformv2 v4.0.1...
-- Installed samsungsdscloud/samsungcloudplatformv2 v4.0.1 (self-signed, key ID 79D5FEFEF12860AF)
+- Installing samsungsdscloud/samsungcloudplatformv2 v4.1.1...
+- Installed samsungsdscloud/samsungcloudplatformv2 v4.1.1 (self-signed, key ID 79D5FEFEF12860AF)
 Partner and community providers are signed by their developers.
 If you'd like to know more about provider signing, you can read about it here:
 https://developer.hashicorp.com/terraform/cli/plugins/signing
